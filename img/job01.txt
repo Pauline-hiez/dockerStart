@@ -1,0 +1,32 @@
+● Donner un exemple de ligne de commande pour ces actions
+pour supprimer :
+
+○ Un conteneur spécifique 
+    -> docker rm nom_container
+
+○ Plusieurs conteneurs 
+    -> docker rm container1 container2
+
+○ Tous les conteneurs arrêtés 
+    -> docker rm nom_du_container
+
+○ Forcer la suppression d'un conteneur actif 
+    -> docker rm -f nom_container
+
+○ Une image spécifique 
+    -> docker rmi nom_image
+
+○ Plusieurs images 
+    -> docker rmi image1 image2
+
+○ Toutes les images utilisées 
+    -> 
+
+○ Toutes les images non utilisées 
+    -> docker image prune -a
+
+○ Forcer la suppression d'une image 
+    -> docker rmi -f nom_image
+
+○ Quel erreur est présente dans les commandes données -> docker images
+        ci-dessus, donner la correction -> 
