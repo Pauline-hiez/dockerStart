@@ -20,13 +20,19 @@ pour supprimer :
     -> docker rmi image1 image2
 
 ○ Toutes les images utilisées 
-    -> 
+    -> docker image prune -a
 
 ○ Toutes les images non utilisées 
-    -> docker image prune -a
+    -> 
 
 ○ Forcer la suppression d'une image 
     -> docker rmi -f nom_image
 
 ○ Quel erreur est présente dans les commandes données -> docker images
         ci-dessus, donner la correction -> 
+
+
+<img>[img/docker.png]</img>
+<img>[img/hello-world.png]</img>
+<img>[img/image-mario.png]</img>
+<img>[img/mario.png]</img>
