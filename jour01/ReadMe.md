@@ -1,79 +1,121 @@
-# Job 01 - Docker Hello-World
+# Jour 01 — Manipulation Docker (Hello World, Mario, NGINX)
 
-## Exemples de commandes de suppression
+## Objectif
+Réaliser les premières manipulations Docker : exécuter un conteneur de test, lancer un conteneur applicatif (Mario), puis gérer un conteneur NGINX avec modification de contenu.
 
-- **Un conteneur spécifique**  
-    `docker rm nom_container`
+## Job 01 — Hello World
 
-- **Plusieurs conteneurs**  
-    `docker rm container1 container2`
+### Commande utilisée
+```bash
+docker run hello-world
+```
 
-- **Tous les conteneurs arrêtés**  
-    `docker rm nom_du_container`
+### Explication
+- `docker run` : télécharge l'image si nécessaire, crée puis lance un conteneur.
+- `hello-world` : image de test officielle Docker.
+- Le message affiché confirme que Docker fonctionne correctement sur la machine.
 
-- **Forcer la suppression d'un conteneur actif**  
-    `docker rm -f nom_container`
+### Capture — Installation Docker
+![Installation Docker](img/docker.png)
+Annotation : validation de l'installation de Docker et de l'environnement.
 
-- **Une image spécifique**  
-    `docker rmi nom_image`
+### Capture — Exécution Hello World
+![Hello World Docker](img/hello-world.png)
+Annotation : le conteneur affiche le message de succès de Docker.
 
-- **Plusieurs images**  
-    `docker rmi image1 image2`
+## Job 02 — Mario
 
-- **Toutes les images utilisées**  
-    `docker image prune -a`
+### Principe
+Lancer un conteneur applicatif, vérifier les commandes Docker associées, puis visualiser l'application dans le navigateur.
 
-- **Toutes les images non utilisées**  
-    *(à compléter)*
+### Capture — Commandes Docker pour Mario
+![Commandes Mario](img/image-mario.png)
+Annotation : commandes de création/lancement du conteneur et vérification de son état.
 
-- **Quelle erreur est présente dans les commandes ci-dessus (`docker images`) ? Donner la correction :**  
-    *(à compléter)*
+### Capture — Résultat dans le navigateur
+![Jeu Mario](img/mario.png)
+Annotation : rendu de l'application Mario une fois le conteneur démarré.
 
-## Captures
+## Job 03 — Server NGINX
 
-### Installation de Docker
-![docker](img/docker.png)
+### Étape 1 — Lancer NGINX
+Commande type :
 
-### Hello World Docker
-![hello-world](img/hello-world.png)
+```bash
+docker run -d -p 8080:80 --name mon_nginx nginx
+```
 
-# Job02 - Mario
+Détail :
+- `-d` : exécution en arrière-plan.
+- `-p 8080:80` : mappe le port local `8080` vers le port `80` du conteneur.
+- `--name mon_nginx` : attribue un nom lisible au conteneur.
 
-### Lignes de commande Mario
-![image-mario](img/image-mario.png)
-
-### Jeu Mario
-![mario](img/mario.png)
-
-
-# Job 03 - Server NGINX
-
-### Image 1 - Serveur NGINX
 ![Image 1 - Serveur NGINX](img/1-server-nginx.png)
-Légende : Lancement du serveur NGINX dans Docker.
+Annotation : démarrage du conteneur NGINX.
 
-### Image 2 - NGINX dans le navigateur
+### Étape 2 — Vérifier dans le navigateur
+URL testée : `http://localhost:8080`
+
 ![Image 2 - NGINX dans le navigateur](img/2-nginx-navigateur.png)
-Légende : Vérification de NGINX dans le navigateur.
+Annotation : affichage de la page par défaut NGINX.
 
-### Image 3 - Entrer dans Docker
+### Étape 3 — Entrer dans le conteneur
+Commande type :
+
+```bash
+docker exec -it mon_nginx bash
+```
+
 ![Image 3 - Entrer dans Docker](img/3-entrer-docker.png)
-Légende : Accès au conteneur Docker en ligne de commande.
+Annotation : accès au shell du conteneur pour modifier les fichiers web.
 
-### Image 4 - Modifier le site
+### Étape 4 — Modifier la page web
+Commande type :
+
+```bash
+echo "<h1>Mon site NGINX</h1>" > /usr/share/nginx/html/index.html
+```
+
 ![Image 4 - Modifier le site](img/4-modofier-site.png)
-Légende : Modification des fichiers du site dans le conteneur.
+Annotation : remplacement du contenu de `index.html` dans le conteneur.
 
-### Image 5 - Site modifié dans le navigateur
-![Image 5 - Site modifié dans le navigateur](img/5-modifier-site-navigateur.png)
-Légende : Résultat des modifications visibles dans le navigateur.
+### Étape 5 — Vérifier la modification
+![Image 5 - Site modifié](img/5-modifier-site-navigateur.png)
+Annotation : la nouvelle page personnalisée s'affiche dans le navigateur.
 
-### Image 6 - Arrêt de NGINX
+### Étape 6 — Arrêter NGINX
+Commande :
+
+```bash
+docker stop mon_nginx
+```
+
 ![Image 6 - Arrêt de NGINX](img/6-stop-nginx.png)
-Légende : Arrêt du conteneur NGINX.
+Annotation : arrêt propre du conteneur NGINX.
 
-### Image 7 - Suppression de NGINX
+### Étape 7 — Supprimer le conteneur
+Commande :
+
+```bash
+docker rm mon_nginx
+```
+
 ![Image 7 - Suppression de NGINX](img/7-supprimer-nginx.png)
-Légende : Suppression du conteneur NGINX.
+Annotation : suppression du conteneur après arrêt.
+
+## Commandes de suppression Docker (récapitulatif)
+
+- Supprimer un conteneur : `docker rm nom_container`
+- Supprimer plusieurs conteneurs : `docker rm container1 container2`
+- Supprimer tous les conteneurs arrêtés : `docker container prune -f`
+- Forcer la suppression d'un conteneur actif : `docker rm -f nom_container`
+- Supprimer une image : `docker rmi nom_image`
+- Supprimer plusieurs images : `docker rmi image1 image2`
+- Supprimer les images non utilisées : `docker image prune -a`
+- Forcer la suppression d'une image : `docker rmi -f nom_image`
+
+## Dépannage rapide
+- `Bind for 0.0.0.0:<port> failed: port is already allocated` : choisir un autre port ou libérer le port déjà utilisé.
+- `container name is already in use` : supprimer l'ancien conteneur (`docker rm -f <nom>`), puis relancer.
 
 
