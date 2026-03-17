@@ -31,8 +31,14 @@ pour supprimer :
 ○ Quel erreur est présente dans les commandes données -> docker images
         ci-dessus, donner la correction -> 
 
-
+Installation de Docker
 ![docker](img/docker.png)
+
+Hello World Docker
 ![hello-world](img/hello-world.png)
+
+Lignes de commande Mario
 ![image-mario](img/image-mario.png)
+
+Jeu Mario
 ![mario](img/mario.png)
