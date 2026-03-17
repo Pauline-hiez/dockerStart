@@ -1,35 +1,77 @@
-● Donner un exemple de ligne de commande pour ces actions
-pour supprimer :
+# Job 01 - Docker
 
-○ Un conteneur spécifique 
-    -> docker rm nom_container
+## Exemples de commandes de suppression
 
-○ Plusieurs conteneurs 
-    -> docker rm container1 container2
+- **Un conteneur spécifique**  
+    `docker rm nom_container`
 
-○ Tous les conteneurs arrêtés 
-    -> docker rm nom_du_container
+- **Plusieurs conteneurs**  
+    `docker rm container1 container2`
 
-○ Forcer la suppression d'un conteneur actif 
-    -> docker rm -f nom_container
+- **Tous les conteneurs arrêtés**  
+    `docker rm nom_du_container`
 
-○ Une image spécifique 
-    -> docker rmi nom_image
+- **Forcer la suppression d'un conteneur actif**  
+    `docker rm -f nom_container`
 
-○ Plusieurs images 
-    -> docker rmi image1 image2
+- **Une image spécifique**  
+    `docker rmi nom_image`
 
-○ Toutes les images utilisées 
-    -> docker image prune -a
+- **Plusieurs images**  
+    `docker rmi image1 image2`
 
-○ Toutes les images non utilisées 
-    -> 
+- **Toutes les images utilisées**  
+    `docker image prune -a`
 
-○ Forcer la suppression d'une image 
-    -> docker rmi -f nom_image
+- **Toutes les images non utilisées**  
+    *(à compléter)*
 
-○ Quel erreur est présente dans les commandes données -> docker images
-        ci-dessus, donner la correction -> 
+- **Quelle erreur est présente dans les commandes ci-dessus (`docker images`) ? Donner la correction :**  
+    *(à compléter)*
+
+## Captures
+
+### Installation de Docker
+![docker](img/docker.png)
+
+### Hello World Docker
+![hello-world](img/hello-world.png)
+
+### Lignes de commande Mario
+![image-mario](img/image-mario.png)
+
+### Jeu Mario
+![mario](img/mario.png)
+
+## Server NGINX
+
+### Image 1 - Serveur NGINX
+![Image 1 - Serveur NGINX](img/1-server-nginx.png)
+Légende : Lancement du serveur NGINX dans Docker.
+
+### Image 2 - NGINX dans le navigateur
+![Image 2 - NGINX dans le navigateur](img/2-nginx-navigateur.png)
+Légende : Vérification de NGINX dans le navigateur.
+
+### Image 3 - Entrer dans Docker
+![Image 3 - Entrer dans Docker](img/3-entrer-docker.png)
+Légende : Accès au conteneur Docker en ligne de commande.
+
+### Image 4 - Modifier le site
+![Image 4 - Modifier le site](img/4-modofier-site.png)
+Légende : Modification des fichiers du site dans le conteneur.
+
+### Image 5 - Site modifié dans le navigateur
+![Image 5 - Site modifié dans le navigateur](img/5-modifier-site-navigateur.png)
+Légende : Résultat des modifications visibles dans le navigateur.
+
+### Image 6 - Arrêt de NGINX
+![Image 6 - Arrêt de NGINX](img/6-stop-nginx.png)
+Légende : Arrêt du conteneur NGINX.
+
+### Image 7 - Suppression de NGINX
+![Image 7 - Suppression de NGINX](img/7-supprimer-nginx.png)
+Légende : Suppression du conteneur NGINX.
 
 Installation de Docker
 ![docker](img/docker.png)
@@ -42,3 +84,36 @@ Lignes de commande Mario
 
 Jeu Mario
 ![mario](img/mario.png)
+
+
+# Job 03 - Server NGINX
+
+Image 1 - Serveur NGINX
+![Image 1 - Serveur NGINX](img/1-server-nginx.png)
+Légende : Lancement du serveur NGINX dans Docker.
+
+Image 2 - NGINX dans le navigateur
+![Image 2 - NGINX dans le navigateur](img/2-nginx-navigateur.png)
+Légende : Vérification de NGINX dans le navigateur.
+
+Image 3 - Entrer dans Docker
+![Image 3 - Entrer dans Docker](img/3-entrer-docker.png)
+Légende : Accès au conteneur Docker en ligne de commande.
+
+Image 4 - Modifier le site
+![Image 4 - Modifier le site](img/4-modofier-site.png)
+Légende : Modification des fichiers du site dans le conteneur.
+
+Image 5 - Site modifié dans le navigateur
+![Image 5 - Site modifié dans le navigateur](img/5-modifier-site-navigateur.png)
+Légende : Résultat des modifications visibles dans le navigateur.
+
+Image 6 - Arrêt de NGINX
+![Image 6 - Arrêt de NGINX](img/6-stop-nginx.png)
+Légende : Arrêt du conteneur NGINX.
+
+Image 7 - Suppression de NGINX
+![Image 7 - Suppression de NGINX](img/7-supprimer-nginx.png)
+Légende : Suppression du conteneur NGINX.
+
+
