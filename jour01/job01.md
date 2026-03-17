@@ -32,7 +32,7 @@ pour supprimer :
         ci-dessus, donner la correction -> 
 
 
-<img>[img/docker.png]</img>
-<img>[img/hello-world.png]</img>
-<img>[img/image-mario.png]</img>
-<img>[img/mario.png]</img>
+[img/docker.png]
+[img/hello-world.png]
+[img/image-mario.png]
+[img/mario.png]
