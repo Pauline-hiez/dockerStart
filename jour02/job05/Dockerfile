@@ -1,14 +1,15 @@
-# Build React
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
+COPY package.json package-lock.json ./
 RUN npm install
-COPY . .
+COPY tsconfig.json ./
+COPY src ./src
 RUN npm run build
 
-# Servir avec NGINX
-FROM nginx:alpine
-COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY package.json ./
+RUN npm install --omit=dev
+EXPOSE 3000
+CMD ["node", "dist/index.js"]
