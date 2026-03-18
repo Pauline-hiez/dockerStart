@@ -9,12 +9,3 @@ COPY index.php /var/www/html/
 
 # EXPOSE 80 → Apache écoute sur le port 80 dans le conteneur
 EXPOSE 80
-
-
-
-
-
-
-
-
-
