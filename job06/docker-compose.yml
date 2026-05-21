@@ -5,14 +5,19 @@ services:
     
     environment:
       MYSQL_ROOT_PASSWORD: motdepasse
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: motdepasse 
+      MYSQL_DATABASE: projetdb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword 
 
     volumes:
       - db_data:/var/lib/mysql
     networks:
       - app-network 
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pmotdepasse"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
   backend:
     image: node:18
@@ -24,7 +29,8 @@ services:
     ports: 
       - "3000:3000"
     depends_on:
-      - database 
+      database:
+        condition: service_healthy
     environment:
       DB_HOST: database 
       DB_USER: dev 
@@ -41,7 +47,8 @@ services:
     volumes: 
       - ./frontend:/usr/share/nginx/html:ro
     depends_on:
-      - backend 
+      backend:
+        condition: service_started
     networks:
       - app-network
 
@@ -51,7 +58,8 @@ services:
     ports: 
       - "8089:8080"
     depends_on:
-      - database 
+      database:
+        condition: service_healthy
     networks:
       - app-network 
 
